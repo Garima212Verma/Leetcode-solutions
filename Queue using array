@@ -1,0 +1,56 @@
+class MyQueue {
+    int size=500;
+    int queue[]=new int[size];
+    int pos=0,temp=0;
+    public MyQueue() {
+        
+    }
+    
+    public void push(int x) {
+        if(isfull())
+        return;
+        queue[pos]=x;
+        pos++;
+
+    }
+    
+    public int pop() {
+        if(empty())
+        return -1;
+        int t=queue[temp];
+        temp++;
+        return t;
+    }
+    
+    public int peek() {
+        if(empty())
+        return -1;
+        return queue[temp];
+        
+    }
+    
+    public boolean empty() {
+        if(temp==pos){
+            temp=0;
+            pos=0;
+            return true;
+        }
+        return false;
+        
+    }
+    public boolean isfull(){
+        if(pos==size)
+        return true;
+        return false;
+
+    }
+}
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue obj = new MyQueue();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.peek();
+ * boolean param_4 = obj.empty();
+ */
